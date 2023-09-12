@@ -1,0 +1,11 @@
+{
+    "require": {
+        "mongodb/mongodb": "^1.12",
+        "php-activerecord/php-activerecord": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codecourse\\":"app/Codecourse"
+        }
+    }
+}
