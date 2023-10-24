@@ -41,7 +41,7 @@ abstract class MongoConnection implements IConnection{
 	{
 		$columns = array();
 		$sth = $this->query_column_info($table);
-
+		
 		foreach($sth as $row) {
 			$c = $this->create_column($row);
 			$columns[$c->name] = $c;

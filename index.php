@@ -6,10 +6,8 @@ use ActiveRecord\Table;
 use foo\bar\biz\User;
 
 $user = new Users();
-echo "<pre>";
-echo "<br>";
 
-//var_dump(Users::all());
+var_dump(Users::all());
 
 /*
 $callback = function (\MongoDB\Driver\Session $session) use ($client): void {
@@ -31,10 +29,6 @@ $transactionOptions = [
 \MongoDB\with_transaction($session, $callback, $transactionOptions);
 */
 
-$data = Users::find('all');
-foreach ($data as &$result) {
-    var_dump($result->id);
-}
 
 /*
 Users::create([

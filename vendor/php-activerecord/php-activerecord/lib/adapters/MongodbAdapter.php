@@ -5,11 +5,11 @@ namespace ActiveRecord;
 
 class MongodbAdapter extends MongoConnection{
 
-	public function limit($offset = null,$limit){
+	public function limit($offset = null,mixed $limit = null){
 		return is_null($offset) ? ["limit" => intval($limit)] : ["skip" => intval($offset),"limit" => intval($limit)];;
 	}
 
-    public function query_for_tables()
+    public function query_for_tables() : array
 	{
         $collections = [];
 		foreach($this->db->listCollections() as $collection){
@@ -17,7 +17,7 @@ class MongodbAdapter extends MongoConnection{
         }
         return $collections;
 	}
-    public function query_column_info($table)
+    public function query_column_info($table) : array
 	{
 		$columns = [];
 		$columnData = $this->db->{$table}->findOne();
@@ -39,7 +39,8 @@ class MongodbAdapter extends MongoConnection{
         return $columns;
 	}
 
-    public static function getTypeColumn($column){
+    public static function getTypeColumn($column) : string
+	{
         $formatArray = ['datetime'=>'Y-m-d','timestamp'=>'h:i:s'];
         foreach($formatArray as $key => $format){
            if(static::validateDate($column,$format)){
@@ -49,7 +50,8 @@ class MongodbAdapter extends MongoConnection{
         return gettype($column);
     }
 
-    public static function validateDate($date, $format = 'Y-m-d'){
+    public static function validateDate($date, $format = 'Y-m-d') : string | false
+	{
         if(gettype($date) === 'string'){
             $d = DateTime::createFromFormat($format, $date);
             return $d && $d->format($format) === $date;

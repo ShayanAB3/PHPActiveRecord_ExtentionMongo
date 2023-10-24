@@ -123,7 +123,7 @@ abstract class SQLConnection implements IConnection
      *
      * @return Connection
      */
-    protected function __construct($info)
+    public function __construct($info)
     {
         try {
             // unix sockets start with a /

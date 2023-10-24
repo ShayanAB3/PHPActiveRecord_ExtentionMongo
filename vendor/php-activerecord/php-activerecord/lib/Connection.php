@@ -25,7 +25,7 @@ class Connection{
         }
         $info = static::parse_connection_url($connection_string);
         $fqclass = static::load_adapter_class($info->protocol);
-
+        var_dump($info);
         try {
             $connection = new $fqclass($info);
             $connection->protocol = $info->protocol;
