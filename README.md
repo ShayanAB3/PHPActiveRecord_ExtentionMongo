@@ -1,6 +1,6 @@
 # PHPActiveRecord_ExtentionMongo
 This is an enhanced version of PHP ActiveRecord using MongoDB. 
-Original library Php-ActiveRecord: https://github.com/php-activerecord/activerecord
+Original library Php-ActiveRecord: https://github.com/php-activerecord/activerecord <br>
 Original library MongoDB: https://github.com/mongodb/mongo-php-library
 
 ## Requirements
